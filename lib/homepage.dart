@@ -1,10 +1,13 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:devcolorguide/api_provider/api_provider.dart';
+import 'package:devcolorguide/bloc/colorsBloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'constants/textStyle.dart';
+import 'models/thecolors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,6 +33,7 @@ class _HomePageState extends State<HomePage> {
       try {
         if (_textEditingController.text.length <= 6) {
           setState(() {
+            colorBloc.fetchColorInfo();
             currentColor = Color(
                 int.parse("0xFF${_textEditingController.text.toUpperCase()}"));
           });
@@ -100,27 +104,20 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(20.0),
-                      child: StreamBuilder<QuerySnapshot>(
-                          stream: firestorReference
-                              .collection('colors')
-                              .where('color_code',
-                                  isEqualTo:
-                                      "${currentColor.toString().substring(10, 16).toUpperCase()}")
-                              .snapshots(),
-                          builder:
-                              (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                      child: StreamBuilder<TheColor>(
+                          stream: colorBloc.theColor,
+                          builder: (context, AsyncSnapshot<TheColor> snapshot) {
                             if (snapshot.data != null) {
-                              if (snapshot.data!.docs.length != 0) {
-                                currentColorCamelCaseName = snapshot
-                                    .data!.docs[0]
-                                    .get('camel_case_name');
+                              if (snapshot.data!.name!.value != null) {
+                                currentColorCamelCaseName =
+                                    snapshot.data!.name!.value!;
                               } else {
                                 currentColorCamelCaseName = "someName";
                               }
                               return Text(
-                                snapshot.data!.docs.length == 0
+                                snapshot.data!.name!.value != null
                                     ? "No Name Assigned"
-                                    : snapshot.data!.docs[0].get('name'),
+                                    : snapshot.data!.name!.value!,
                                 style: whiteS20W700,
                               );
                             }
