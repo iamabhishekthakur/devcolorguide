@@ -76,10 +76,10 @@ class Cmyk {
 
   CmykFraction? fraction;
   String? value;
-  dynamic? c;
-  dynamic? m;
-  dynamic? y;
-  int? k;
+  dynamic c;
+  dynamic m;
+  dynamic y;
+  dynamic k;
 
   factory Cmyk.fromJson(Map<String, dynamic> json) => Cmyk(
         fraction: CmykFraction.fromJson(json["fraction"]),
@@ -108,10 +108,10 @@ class CmykFraction {
     this.k,
   });
 
-  dynamic? c;
-  dynamic? m;
-  dynamic? y;
-  int? k;
+  dynamic c;
+  dynamic m;
+  dynamic y;
+  dynamic k;
 
   factory CmykFraction.fromJson(Map<String, dynamic> json) => CmykFraction(
         c: json["c"],
@@ -182,9 +182,9 @@ class Hsl {
   });
 
   HslFraction? fraction;
-  int? h;
-  int? s;
-  int? l;
+  dynamic h;
+  dynamic s;
+  dynamic l;
   String? value;
 
   factory Hsl.fromJson(Map<String, dynamic> json) => Hsl(
@@ -211,9 +211,9 @@ class HslFraction {
     this.l,
   });
 
-  int? h;
-  int? s;
-  int? l;
+  dynamic h;
+  dynamic s;
+  dynamic l;
 
   factory HslFraction.fromJson(Map<String, dynamic> json) => HslFraction(
         h: json["h"],
@@ -239,9 +239,9 @@ class Hsv {
 
   HsvFraction? fraction;
   String? value;
-  int? h;
-  int? s;
-  int? v;
+  dynamic h;
+  dynamic s;
+  dynamic v;
 
   factory Hsv.fromJson(Map<String, dynamic> json) => Hsv(
         fraction: HsvFraction.fromJson(json["fraction"]),
@@ -267,9 +267,9 @@ class HsvFraction {
     this.v,
   });
 
-  int? h;
-  int? s;
-  int? v;
+  dynamic h;
+  dynamic s;
+  dynamic v;
 
   factory HsvFraction.fromJson(Map<String, dynamic> json) => HsvFraction(
         h: json["h"],
@@ -347,7 +347,7 @@ class Name {
   String? value;
   String? closestNamedHex;
   bool? exactMatchName;
-  int? distance;
+  dynamic distance;
 
   factory Name.fromJson(Map<String, dynamic> json) => Name(
         value: json["value"],
@@ -374,9 +374,9 @@ class Rgb {
   });
 
   RgbFraction? fraction;
-  int? r;
-  int? g;
-  int? b;
+  dynamic r;
+  dynamic g;
+  dynamic b;
   String? value;
 
   factory Rgb.fromJson(Map<String, dynamic> json) => Rgb(
@@ -403,9 +403,9 @@ class RgbFraction {
     this.b,
   });
 
-  int? r;
-  int? g;
-  int? b;
+  dynamic r;
+  dynamic g;
+  dynamic b;
 
   factory RgbFraction.fromJson(Map<String, dynamic> json) => RgbFraction(
         r: json["r"],
@@ -431,9 +431,9 @@ class Xyz {
 
   XyzFraction? fraction;
   String? value;
-  int? x;
-  int? y;
-  int? z;
+  dynamic x;
+  dynamic y;
+  dynamic z;
 
   factory Xyz.fromJson(Map<String, dynamic> json) => Xyz(
         fraction: XyzFraction.fromJson(json["fraction"]),
@@ -459,9 +459,9 @@ class XyzFraction {
     this.z,
   });
 
-  int? x;
-  int? y;
-  int? z;
+  dynamic x;
+  dynamic y;
+  dynamic z;
 
   factory XyzFraction.fromJson(Map<String, dynamic> json) => XyzFraction(
         x: json["X"],

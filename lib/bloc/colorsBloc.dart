@@ -9,8 +9,8 @@ class ColorBloc {
 
   Stream<TheColor> get theColor => colorFetcher.stream;
 
-  fetchColorInfo() async {
-    Response response = await _apiProvider.getColorInfo();
+  fetchColorInfo(String colorText) async {
+    Response response = await _apiProvider.getColorInfo(colorText);
     if (response.statusCode == 200) {
       TheColor theColor = theColorFromJson(response.body);
       colorFetcher.sink.add(theColor);
