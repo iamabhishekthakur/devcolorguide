@@ -19,10 +19,9 @@ const TextStyle blackS15W700 = TextStyle(
 
 const TextStyle whiteS15W700 = TextStyle(
   color: Colors.white,
-  fontSize: 15.0,
+  fontSize: 12.0,
   fontWeight: FontWeight.w700,
 );
-
 
 const TextStyle havelockBlueS15W700 = TextStyle(
   color: Color(0xFF569CD6),
@@ -35,4 +34,3 @@ const TextStyle corianderS15W700 = TextStyle(
   fontSize: 15.0,
   fontWeight: FontWeight.w700,
 );
-
