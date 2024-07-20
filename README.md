@@ -2,6 +2,6 @@
  Developer's Color Guide
  
  
- Live Site
+Available as Chrome Plugin
 
-https://devcolorguide.web.app/#/
+[https://devcolorguide.web.app/#/](https://chromewebstore.google.com/detail/dev-color-guide-extension/dleljfkiembfgkoamocbkdpbaggncapb)
